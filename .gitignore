@@ -1,0 +1,170 @@
+# ═══════════════════════════════════════════════════════════
+# .gitignore — MLOps Learning Repo (90 days)
+# Dùng cho mono-repo chứa nhiều projects:
+# mlops-journey/
+# ├── project01-house-price/
+# ├── project02-churn-retraining/
+# ├── project03-sentiment-monitoring/
+# └── project04-rag-chatbot/
+# ═══════════════════════════════════════════════════════════
+
+# ── Python ───────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+wheels/
+pip-wheel-metadata/
+.installed.cfg
+MANIFEST
+
+# ── Virtual Environments ─────────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+virtualenv/
+**/venv/
+**/.venv/
+
+# ── Secrets & Config — TUYỆT ĐỐI KHÔNG COMMIT ────────────────
+.env
+.env.*
+!.env.example
+**/.env
+**/!.env.example
+*.pem
+*.key
+credentials.json
+service-account*.json
+secrets/
+.aws/
+.gcp/
+
+# ── MLflow ───────────────────────────────────────────────────
+mlruns/
+mlartifacts/
+**/mlruns/
+**/mlartifacts/
+mlflow.db
+
+# ── Model Artifacts (track bằng DVC/MLflow, không phải git) ──
+artifacts/
+**/artifacts/
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.pth
+*.onnx
+*.pb
+*.safetensors
+models/
+checkpoints/
+
+# ── Data (track bằng DVC từ tuần 7) ──────────────────────────
+data/raw/
+data/processed/
+data/interim/
+**/data/raw/
+**/data/processed/
+*.csv
+*.parquet
+*.feather
+*.json.gz
+*.zip
+*.tar.gz
+# Cho phép data mẫu nhỏ để demo
+!**/sample_data/*.csv
+!**/fixtures/*.csv
+
+# ── DVC ──────────────────────────────────────────────────────
+# DVC tự quản lý .dvc files — KHÔNG ignore *.dvc và .dvc/config
+/dvc-storage/
+.dvc/cache/
+.dvc/tmp/
+
+# ── Jupyter ──────────────────────────────────────────────────
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+*.ipynb_convert/
+profile_default/
+ipython_config.py
+
+# ── Testing & Coverage ────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+
+# ── Linting & Type Checking ──────────────────────────────────
+.ruff_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ── Docker ───────────────────────────────────────────────────
+# Không ignore Dockerfile/compose — đó là code!
+docker-volumes/
+.docker/
+
+# ── Airflow (tuần 8) ─────────────────────────────────────────
+airflow.db
+airflow-webserver.pid
+standalone_admin_password.txt
+logs/
+**/airflow/logs/
+
+# ── Vector Stores / LLM (tuần 11) ────────────────────────────
+chroma_db/
+**/chroma_db/
+faiss_index/
+**/faiss_index/
+*.faiss
+.langchain.db
+
+# ── Logs ─────────────────────────────────────────────────────
+*.log
+logs/
+**/logs/
+
+# ── IDE ──────────────────────────────────────────────────────
+.vscode/
+!.vscode/settings.json.example
+.idea/
+*.swp
+*.swo
+*~
+.spyderproject
+.spyproject
+
+# ── OS ───────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── Terraform (nếu dùng IaC ở Phase 3) ───────────────────────
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+
+# ── Node (nếu có frontend demo) ──────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-error.log*

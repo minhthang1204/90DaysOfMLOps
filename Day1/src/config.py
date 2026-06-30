@@ -25,3 +25,8 @@ METRICS_PATH = os.getenv("METRICS_PATH", "artifacts/metrics.json")
 TEST_SIZE    = float(os.getenv("TEST_SIZE", 0.2))
 RANDOM_STATE = int(os.getenv("RANDOM_STATE", 42))
 N_ESTIMATORS = int(os.getenv("N_ESTIMATORS", 100))
+
+SCALER_PATH = "artifacts/scaler.pkl"
+
+# Thêm dòng này — trỏ vào folder data trong project
+DATA_HOME = os.path.join(os.path.dirname(__file__), "..", "data", "raw")

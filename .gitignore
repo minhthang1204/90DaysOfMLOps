@@ -37,7 +37,7 @@ virtualenv/
 .env.*
 !.env.example
 **/.env
-**/!.env.example
+!**/.env.example
 *.pem
 *.key
 credentials.json
@@ -168,3 +168,6 @@ terraform.tfvars
 node_modules/
 npm-debug.log*
 yarn-error.log*
+
+**/data/raw/
+**/artifacts/

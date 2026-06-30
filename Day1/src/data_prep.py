@@ -9,12 +9,15 @@ from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-from src.config import TEST_SIZE, RANDOM_STATE, SCALER_PATH
+from src.config import TEST_SIZE, RANDOM_STATE, SCALER_PATH, DATA_HOME
 
 
 def load_data() -> pd.DataFrame:
     """Load California Housing dataset (built-in, không cần tải file)."""
-    housing = fetch_california_housing(as_frame=True)
+    housing = fetch_california_housing(
+        data_home=DATA_HOME,  # ← thêm dòng này
+        as_frame=True
+    )
     df = housing.frame
     print(f"✅ Loaded data: {df.shape[0]} rows, {df.shape[1]} cols")
     return df
